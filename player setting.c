@@ -61,11 +61,40 @@ int configUser(void) {
 		{
 			printf("Invalid input players(%d).", n_user);
 		}
-		else
-		{
-			printf("next");
-		}
-			
+		
 	}
 	
+}
+//betting
+int main(void) {
+	configUser();
+	int i;
+	
+	dollar[0]=50;
+	do
+	{		
+		printf("->your betting (total:$%d) : ", dollar[0]);
+		bet[0]=getIntegerInput();
+		if (bet[0]==-1 || bet[0]<1)
+		{
+			printf("->invalid input for betting $%d\n", bet[0]);
+		}
+		else if (bet[0]>dollar[0])
+		{
+			printf("->you only have $%d! bet again\n", dollar[0]);
+		} 
+	
+	}while (bet[0]==-1 ||bet[0]<1||bet[0]>dollar[0]);
+	
+	printf("your betting(total:$%d) : %d\n",dollar[0],bet[0]);
+	
+	for (i=1;i<n_user;i++)
+	{
+		bet[i]=1+rand()%5;
+		dollar[i]=50;
+		printf("->player%d bets $%d (out of $%d)\n", i,bet[i],dollar[i]);
+	}
+	
+	return 0;
+			
 }
