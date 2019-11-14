@@ -6,7 +6,7 @@ int mixCardTray(void) {
 	int card[52];
 	
 	for (i=1;i<53;i++)
-	card[i]=1+rand()%10;
+	card[i]=1+rand()%13;
 	
 	for (i=1;i<53;i++)
 	printf("card[%d]=%d\n", i, card[i]);

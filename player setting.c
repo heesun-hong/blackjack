@@ -45,24 +45,26 @@ int getIntegerInput(void) {
 
 
 //player settiing
-int configUser(void) {
+int configUser(void) 
+{
+	do
 	{
 		printf("Input the number of players (MAX:5):");
 		n_user = getIntegerInput();
 		if (n_user == -1)
 		{
-			printf("Invalid input players(%d).", n_user);
+			printf("Invalid input players(%d).\n", n_user);
 		}
 		else if (n_user>5)
 		{
-			printf("Too many players!");
+			printf("Too many players!\n");
 		}
 		else if (n_user<1)
 		{
-			printf("Invalid input players(%d).", n_user);
+			printf("Invalid input players(%d)\n.", n_user);
 		}
 		
-	}
+	}while (n_user==-1||n_user<0||n_user>5);
 	
 }
 //betting
