@@ -40,7 +40,8 @@ int gameEnd = 0; 							//game end flag
 int mixCardTray(void)
 {
 	int card[52],i,j;
-	
+	printf("-->card is mixed and put into the tray\n");	
+
 	srand((unsigned)time(NULL));
 	
 	for (i=1;i<53;i++){
@@ -53,9 +54,7 @@ int mixCardTray(void)
 		}
 	}
 	
-	for (i=1;i<53;i++)
-	printf("card[%d]=%d\n",i, card[i]);
-	printf("\n");
+	
 	return 0;
 		
 }
