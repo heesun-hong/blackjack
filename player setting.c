@@ -68,7 +68,7 @@ int configUser(void)
 	
 }
 //betting
-int main(void) {
+int betDollar(void) {
 	configUser();
 	int i;
 	
