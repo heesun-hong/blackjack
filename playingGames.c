@@ -105,4 +105,87 @@ int betDollar(void) {
 			
 }
 
+//offering initial 2 cards
+void offerCards(void) {
+	int i;
+	//1. give two card for each players
+	printf("----------- CARD OFFERING ---------------\n");
+	for (i=0;i<n_user;i++)
+	{
+		cardhold[i][0] = pullCard();
+		cardhold[i][1] = pullCard();
+	}
+	//2. give two card for the operator
+	cardhold[n_user][0] = pullCard();
+	cardhold[n_user][1] = pullCard();
+	
+	return;
+}
+
+//print initial card status
+void printCardInitialStatus(void) { 
+	int cardnum,j,i;
+		printf("--- server      : ");
+		printf("X ");
+		printCard(cardhold[0][1]);
+			printf("\n");
+		
+		printf("  -> you        : ");
+		for(j=0;j<2;j++)
+			{
+				cardnum=cardhold[1][j];
+				printCard(cardnum);
+			}
+			printf("\n");
+		
+		for(i=2;i<n_user+1;i++)
+			{
+				printf("  -> player %d   : ",i-1);
+				for(j=0;j<2;j++)
+					{
+						cardnum=cardhold[i][j];
+						printCard(cardnum);
+					}
+				printf("\n");		
+			}
+}
+
+int getAction(void) {
+	int input;
+
+	
+	do
+	{
+		printf(" Action? (0 - go, others - stay) :");
+		input = getIntegerInput();
+		if (input==0)
+		{
+			cardhold[1][cardcnt] = pullCard();
+			cardcnt++;
+			printUserCardStatus(1, cardcnt);
+		}	
+	
+	}
+	while (input==0);
+}
+
+void printUserCardStatus(int user, int cardcnt) {
+	int i;
+	
+	printf("   -> card : ");
+	for (i=0;i<cardcnt;i++)
+		printCard(cardhold[user][i]);
+	printf("\t ::: ");
+}
+
+int calcStepResult(int user) {
+	int i;
+	int cardSum = 0; 
+	
+	for (i=0;i<cardcnt;i++)
+		cardSum += cardhold[user+1][i]; //You only need the cardSum of the players 
+		
+	return cardSum;
+}
+
 

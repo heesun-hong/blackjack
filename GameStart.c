@@ -18,8 +18,8 @@
 //card tray object
 int CardTray[N_CARDSET*N_CARD];
 int cardIndex = 0;							
-
-
+int card[52];
+int cardnum;
 //player info
 int dollar[N_MAX_USER];						//dollars that each player has
 int n_user;									//number of users
@@ -32,36 +32,29 @@ int bet[N_MAX_USER];						//current betting
 int gameEnd = 0; 							//game end flag
 
 
-//card array controllers -------------------------------
-
-
-//mix the card sets and put in the array
-int mixCardTray(void)
-{
-	int i,j;
-
-	srand((unsigned)time(NULL));
+void printUserCardStatus(int user, int cardcnt) {
+	int i;
 	
-	for (i=0;i<52;i++){
-		CardTray[i]=1+rand()%52;
-		for(j=1;j<i;j++){
-			if(CardTray[i]==CardTray[j]){
-				i--;
-				break;
-			}
-		}
-	}
+	printf("   -> card : ");
+	for (i=0;i<cardcnt;i++)
+		printCard(cardhold[user][i]);
+	printf("\t ::: ");
+}
+
+int calcStepResult(int user) {
+	int i;
+	int cardSum = 0; 
 	
-	
-	return 0;
+	for (i=0;i<cardcnt;i++)
+		cardSum += cardhold[user+1][i]; //You only need the cardSum of the players 
 		
+	return cardSum;
 }
 
-//get one card from the tray
-int pullCard(void) {
-	cardIndex++;
-	return CardTray[cardIndex-1];
-	
-}
+
+
+
+
+
 
 
