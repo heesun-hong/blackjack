@@ -174,7 +174,7 @@ int getAction(void) {
 
 
 //print current card status
-void printUserCardStatus(int user, int cardcnt) {
+int printUserCardStatus(int user, int cardcnt) {
 	int i;
 	
 	printf("   -> card : ");
