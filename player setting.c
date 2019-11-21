@@ -194,10 +194,25 @@ int calcStepResult(int user) {
 	return cardSum;
 }
 
-int checkResult() {
-	
-}
-
-int checkWinner() {
+int checkResult(int user) {
+	int cardSum=0;
+	int i;
+	int calcStepResult();
+	printf("-------------------- ROUND 1 result ....\n");
+	if(calcStepResult(1)>21)
+	{
+		printf("-> your result : lose due to overflow! ($%d)",dollar[i]-bet[i]);
+	}
+	else if(calcStepResult(0)==21||calcStepResult(1)<calcStepResult(0))
+	{
+		printf("-> your result : lose! (sum:calcStepResult(1))-->$%d",dollar[i]-bet[i]);
+	}
+	else if(calcStepResult(0)<=calcStepResult(1))
+	{
+		printf("-> your result : win (sum:%d)",calcStepResult(1));
+	}
+	else if (calcStepResult(1)==21)
+	{
+		}	
 	
 }
