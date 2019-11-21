@@ -29,7 +29,6 @@ int n_user;									//number of users
 int cardhold[N_MAX_USER+1][N_MAX_CARDHOLD];	//cards that currently the players hold
 int cardSum[N_MAX_USER];					//sum of the cards
 int bet[N_MAX_USER];						//current betting 
-int gameEnd = 0; 							//game end flag
 
 
 //card array controllers -------------------------------

@@ -123,10 +123,11 @@ void offerCards(void) {
 }
 
 //print initial card status
-void printCardInitialStatus(void) { 
-	int cardnum,j,i;
+void printCardInitialStatus(void) {
+	int cardnum,j,i,X;
+		X=cardhold[0][0];
 		printf("--- server      : ");
-		printf("X ");
+		printf("X ",cardhold[0][0]);
 		printCard(cardhold[0][1]);
 			printf("\n");
 		
@@ -150,9 +151,10 @@ void printCardInitialStatus(void) {
 			}
 }
 
+//GO? STOP?
 int getAction(void) {
 	int input;
-
+	int i;
 	
 	do
 	{
@@ -164,11 +166,15 @@ int getAction(void) {
 			cardcnt++;
 			printUserCardStatus(1, cardcnt);
 		}	
-	
+	if (calcStepResult(1)>21)
+	break;
 	}
 	while (input==0);
+	
 }
 
+
+//print current card status
 void printUserCardStatus(int user, int cardcnt) {
 	int i;
 	
@@ -178,14 +184,21 @@ void printUserCardStatus(int user, int cardcnt) {
 	printf("\t ::: ");
 }
 
+//check the card status
 int calcStepResult(int user) {
 	int i;
-	int cardSum = 0; 
-	
+	int cardSum = 0;
 	for (i=0;i<cardcnt;i++)
-		cardSum += cardhold[user+1][i]; //You only need the cardSum of the players 
+		cardSum += getCardNum(cardhold[user][i]); //You only need the cardSum of the players 
+		
 		
 	return cardSum;
 }
 
+int checkResult() {
+	
+}
 
+int checkWinner() {
+	
+}
